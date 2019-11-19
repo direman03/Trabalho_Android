@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == REQUEST_NEW && requestCode == RESULT_OK){
+        if(requestCode == REQUEST_NEW && resultCode == RESULT_OK){
             ContatoInfo contatoInfo = data.getParcelableExtra("contato");
             helper.inserirContato(contatoInfo);
             listaContatos = helper.getList(order);
             adapter = new ContatoAdapter(listaContatos);
             contatosRecy.setAdapter(adapter);
 
-    }else if(requestCode == REQUEST_ALTER && requestCode == RESULT_OK){
+    }else if(requestCode == REQUEST_ALTER && resultCode == RESULT_OK){
             ContatoInfo contatoInfo = data.getParcelableExtra("contato");
             helper.alteraContato(contatoInfo);
             listaContatos = helper.getList(order);
